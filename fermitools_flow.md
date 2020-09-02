@@ -13,8 +13,8 @@ Combine the weekly files into a single file without removing any events. This ca
 Now we filter the data for the proper event class and remove earth limb contamination. 
 	[Recommended](https://fermi.gsfc.nasa.gov/ssc/data/analysis/documentation/Cicerone/Cicerone_Data/LAT_DP.html#PhotonClassification) use for point source and moderately extended sources and also for galactic [diffuse analysis](https://fermi.gsfc.nasa.gov/ssc/data/analysis/documentation/Cicerone/Cicerone_Data_Exploration/Data_preparation.html): evclass - 128 (P8R3_SOURCE_V2), include evtype - 3 cut to use:
     
-	both front and back converting event types. 
-	remove contamination by limiting reconstructed zenith angle of 90 degrees or less. 
+* both front and back converting event types. 
+* remove contamination by limiting reconstructed zenith angle of 90 degrees or less. 
 
 The earth limb lies at a zenith angle of 113 degrees, so suggested value of 90 degrees provides protection against significant contamination by atmospheric gammas. Also improve the PSF by excluding events with reconstructed energies below 1GeV.      
 
@@ -35,9 +35,9 @@ time selection recommendation is given [here](https://fermi.gsfc.nasa.gov/ssc/da
 for gtmktime within Filter expression we select (DATA_QUAL>0) && (LAT_CONFIG==1) && (IN_SAA !=T)
 	what this does is -- 
     
-    1. exclude time periods when some spacecraft event has affected the quality of the data, 
-    2. ensures the lat instrument was in normal science data-taking mode, 
-    3. select times when the spacecraft is not in the Southern Atlantic Anomaly (SAA).    	  
+  * exclude time periods when some spacecraft event has affected the quality of the data, 
+  * ensures the lat instrument was in normal science data-taking mode, 
+  * select times when the spacecraft is not in the Southern Atlantic Anomaly (SAA).    	  
 
 ----------------------------------------------------
 
@@ -84,11 +84,11 @@ Livetime: accumulated time during which the LAT is actively taking event data.
 
 parameters passed on: 
 
-    event file : file created with gtmktime tool after applying necessary selection criterion. 
-    spacecraft file: spacecraft data extension file, downloaded from Fermi-lat server, 
-    output file: specify a new file name.
-    dcostheta (step size in cos): inclination angle binning represented as the cosine of the off-axis angle. used value: 0.09. 
-    binsz (pixel size in degrees): size of the spatial grid in degrees. 
+   * event file : file created with gtmktime tool after applying necessary selection criterion. 
+   * spacecraft file: spacecraft data extension file, downloaded from Fermi-lat server, 
+   * output file: specify a new file name.
+   * dcostheta (step size in cos): inclination angle binning represented as the cosine of the off-axis angle. used value: 0.09. 
+   * binsz (pixel size in degrees): size of the spatial grid in degrees. 
 
 this takes time (depends on the angular bin size), once the livetime cube is generated now we are ready to compute the exposure map.  
 
@@ -110,11 +110,11 @@ The exposure needs to be recalculated if ROI, zenith angle, time, event class or
 generates (binned) exposure map, or a set of exposure maps for different energies, from a livetime cube written by gtltcube.
 parameters:	
 
-        livetime cube file: file created with gtltcube. the filename that was provided for counts cube-- it will use the information from that file to define the geometry of the exposure map.
+  * livetime cube file: file created with gtltcube. the filename that was provided for counts cube-- it will use the information from that file to define the geometry of the exposure map.
         
-		counts map file: file created with gtbin (binned healpix map)
+  * counts map file: file created with gtbin (binned healpix map)
         
-		response function: P8R3_SOURCE_V2 (default for evclass = 128 and evtype = 3). recommended class for most analyses, provides good sensitivity for analysis of point sources and moderately extended sources. P8R3_CLEAN_V2 (evclass = 256, evtype = ?) and ULTRACLEAN and more all have backrground lower background rate than the source class (P8R3_SOURCE_*).  	 
+  * response function: P8R3_SOURCE_V2 (default for evclass = 128 and evtype = 3). recommended class for most analyses, provides good sensitivity for analysis of point sources and moderately extended sources. P8R3_CLEAN_V2 (evclass = 256, evtype = ?) and ULTRACLEAN and more all have backrground lower background rate than the source class (P8R3_SOURCE_*).  	 
  
 
 ----------------------------------------------------
@@ -130,11 +130,11 @@ gtsrcmaps creates model count maps for use with the binned likelihood analysis. 
 
 parameters:	
 
-        Exposure hypercube file: file created with gtltcube 
-		Counts map file: Healpix file created with gtbin. 
-		source model file: mock catalogue .xml file
-		binned exposure map: file created with gtexpcube2. 
-		Response function: same as used in gtexpcube2 :P8R3_SOURCE_V2, Check [here](https://fermi.gsfc.nasa.gov/ssc/data/access/lat/BackgroundModels.html) for more info. 
+  * Exposure hypercube file: file created with gtltcube 
+  * Counts map file: Healpix file created with gtbin. 
+  * Source model file: mock catalogue .xml file
+  * Binned exposure map: file created with gtexpcube2. 
+  * Response function: same as used in gtexpcube2 :P8R3_SOURCE_V2, Check [here](https://fermi.gsfc.nasa.gov/ssc/data/access/lat/BackgroundModels.html) for more info. 
 
 
 ----------------------------------------------------
@@ -149,12 +149,12 @@ on the fit parameters. Here we didn't use gtlike. Because rather than a single s
 
 parameters : 	
 
-        source maps (or counts map) file: created with gtsrcmaps. (for using counts map to create model image check [here](https://fermi-hero.readthedocs.io/en/latest/galactic_center/science_tool_images.html).)
-		source model file: same as used in gtsrcmaps (.xml file catalog)
-		output file: write a convenient name .fits
-		Response functions: consistent with previous one 
-		Exposure cube: file created with gtltcube
-		binned exposure map: file created with gtexpcube file. 
+   * Source maps (or counts map) file: created with gtsrcmaps. (for using counts map to create model image check [here](https://fermi-hero.readthedocs.io/en/latest/galactic_center/science_tool_images.html).)
+   * Source model file: same as used in gtsrcmaps (.xml file catalog)
+   * Output file: write a convenient name .fits
+   * Response functions: consistent with previous one 
+   * Exposure cube: file created with gtltcube
+   * Binned exposure map: file created with gtexpcube file. 
 		
 		 
 splits out some warning but, no worries :>). 
