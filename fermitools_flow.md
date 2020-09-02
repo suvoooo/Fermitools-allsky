@@ -58,9 +58,11 @@ particular bin boundaries.
 for gtbindef the binning needs to be user defined, for Fermilat analysis the unit is in MeV. See docs.
 
 for gtbindef we need to create an ascii file with energy bins specified (with MeV units). ex: 
-30	50
-50	90
-90	...etc..
+| E1 | E2 |
+|---|---|
+| 30 | 50 |
+| 50 | 90 |
+| 90 |...etc..|
 
 for this work we use the Fermi-energy binning as mentioned in the original 4FGL paper in Table 2 as a start exercise.  
 
