@@ -52,7 +52,8 @@ After gtmktime, we bin the data for exposure correction. Here we need gtbin and 
 gtbin will be mostly used to produce count maps.  
 
 for gtbin -- the binning needs to be defined and this can also created using another fermitool gtbindef. Here we used it for producing HEALPIX type file as output. 
-Relevant parameters are Ordering scheme Ring, Order of map 8, coordinate system GAL, and finally the file produced by gtbindef can be passed to specify 
+Relevant parameters are Ordering scheme Ring, Since it asks for "order of the map" as a parameter, according to [here](https://gamma-astro-data-formats.readthedocs.io/en/latest/skymaps/healpix/) order should be $log_2 (NSIDE)$, and NSIDE is 8. 
+coordinate system GAL, and finally the file produced by gtbindef can be passed to specify 
 particular bin boundaries.  
 
 for gtbindef the binning needs to be user defined, for Fermilat analysis the unit is in MeV. See docs.
