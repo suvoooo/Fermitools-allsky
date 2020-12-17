@@ -91,7 +91,7 @@ parameters passed on:
    * spacecraft file: spacecraft data extension file, downloaded from Fermi-lat server, 
    * output file: specify a new file name.
    * dcostheta (step size in cos): inclination angle binning represented as the cosine of the off-axis angle. used value: 0.09. 
-   * binsz (pixel size in degrees): size of the spatial grid in degrees. 
+   * binsz (pixel size in degrees): size of the spatial grid in degrees. Final value used : 0.25 
 
 this takes time (depends on the angular bin size), once the livetime cube is generated now we are ready to compute the exposure map.  
 
