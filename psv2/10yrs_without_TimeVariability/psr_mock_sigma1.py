@@ -447,7 +447,7 @@ for i in range(num_cats):
             mock_xmlfile_psr.write(
                 '<parameter free="1" max="{0}" min="{1}" name="Prefactor" scale="1.0" value="{2}"/>\n'.format(max(c_pl_FD), min(c_pl_FD), fac))
             mock_xmlfile_psr.write(
-                '<parameter free="1" max="{0}" min="{1}" name="Index1" scale="1.0" value="{2}"/>\n'.format(max(c_pl_i), min(c_pl_i), ga))
+                '<parameter free="1" max="{0}" min="{1}" name="Index1" scale="-1.0" value="{2}"/>\n'.format(max(c_pl_i), min(c_pl_i), ga))
             mock_xmlfile_psr.write(
                 '<parameter free="0" max="{0}" min="{1}" name="Scale" scale="1" value="{2}"/>\n'.format(max(c_pl_PEn), min(c_pl_PEn), PEn))
             mock_xmlfile_psr.write(
