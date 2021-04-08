@@ -19,3 +19,11 @@ The detailed steps however are somewhat different.
 * For Zenith angle cut (in `gtselect` tool) For energy>1 GeV: Zenith Angle Cut 105 degree for both Front and Back type events. For energy<1 GeV: 90 degree cut for Back Events, 100 degree for Front Events. 
 
 Apart  from  the `evtype` keyword  used  for  event  selection  (FRONT  and  BACK) in `gtselect`, `gtexpcube2`, `gtsrcmaps` we also add `edisp_bins=-2` in `gtexpcube2` and in `gtmodel`. 
+
+# BLLac Example Sky-Map for 1-2 GeV Bin 
+
+![BLLac 1-2mock](https://github.com/suvoooo/Fermitools-allsky/blob/master/psv2/bll1_2mock.jpg)
+
+# PSR Example Sky-Map for 1-2 GeV Bin 
+
+![PSR 1-2mock](https://github.com/suvoooo/Fermitools-allsky/blob/master/psv2/psr1_2mock.jpg)
