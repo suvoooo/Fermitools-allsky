@@ -573,7 +573,7 @@ for i in range(num_cats):
     if (len(c_lp_a_bll_comb_bcu) <= 2600) and (len(c_lp_a_bll_comb_bcu) >= 1800):
         source_numbers_check = len(c_lp_a_bll_comb_bcu)
         print ('sources in file: ', source_numbers_check)
-        mock_xmlfile_bll_bcu_comb = open('/content/drive/My Drive/Colab Notebooks/mock_4FGL_bllvar_%d.xml' %(start_source_num), 'w')
+        mock_xmlfile_bll_bcu_comb = open('./F1/mock_4FGL_bllvar_%d.xml' %(start_source_num), 'w')
         mock_xmlfile_bll_bcu_comb.write('<source_library title="source library">\n')
         for n, al, be, pivE, ra, dec, num in zip(variability_bll_bcu_F, c_lp_a_bll_comb_bcu, c_lp_b_bll_comb_bcu, 
                                          c_lp_PEn_bll_comb_bcu, 
