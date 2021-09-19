@@ -439,7 +439,7 @@ for i in range(num_cats):
         source_numbers_check = len(c_pl_Expb)
         print ('sources in file: ', source_numbers_check)
 
-        mock_xmlfile_psr = open('/content/drive/My Drive/Colab Notebooks/mock_4FGL_psrF1_%d.xml' %(start_source_num), 'w')
+        mock_xmlfile_psr = open('./F1/mock_4FGL_psr_%d.xml' %(start_source_num), 'w')
         mock_xmlfile_psr.write('<source_library title="source library">\n')
         for fac, ga, Ea, Eb, PEn, ra, dec, num in zip(c_pl_FD, c_pl_i, c_pl_Expa, c_pl_Expb, c_pl_PEn,
                                          psr_ra_cord_list, psr_dec_cord_list, mock_source_num_psr):
