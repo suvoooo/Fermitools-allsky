@@ -438,7 +438,7 @@ for i in range(num_cats):
         source_numbers_check = len(c_GLAT_pwn_spp_comb)
         print ('sources in file: ', source_numbers_check)
 
-        mock_xmlfile_pwn_spp_comb = open('/content/drive/My Drive/Colab Notebooks/mock_4FGL_pwnF1_%d.xml' %(start_source_num), 'w')
+        mock_xmlfile_pwn_spp_comb = open('./F1/mock_4FGL_pwn_%d.xml' %(start_source_num), 'w')
         mock_xmlfile_pwn_spp_comb.write('<source_library title="source library">\n')
         for n, al, be, pivE, ra, dec, num in zip(c_lp_F_pwn_spp_comb, c_lp_a_pwn_spp_comb, c_lp_b_pwn_spp_comb, 
                                                 c_lp_PEn_pwn_spp_comb, 
