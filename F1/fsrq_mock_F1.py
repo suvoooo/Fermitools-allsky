@@ -259,7 +259,7 @@ LPBeta_mock_dist2_fsrq = np.random.gumbel(LP_beta_mean_fsrq-0.080, np.sqrt(LP_be
 LPFDensity_mock_dist_fsrq = 10**(np.sqrt(LP_Fdensity_var_fsrq) * np.random.randn(LP_df_mockCat_bins_fsrq) + LP_Fdensity_mean_fsrq) 
 
 
-from scipy.stats import expon, lognorm
+#from scipy.stats import expon, lognorm
 
 logshape1_fsrq, logloc1_fsrq, logscale1_fsrq = lognorm.fit(v22LP_df_fsrq['Piv_En'], loc=0)
 print ('check fit shape, loc and scale, log(scale): ', logshape1_fsrq, logloc1_fsrq, logscale1_fsrq, np.log(logscale1_fsrq))
