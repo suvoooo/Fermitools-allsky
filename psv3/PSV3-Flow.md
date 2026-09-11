@@ -49,3 +49,30 @@ Corresponding codes are written in `generate_photon_urls.py` which generates rel
 7. Next we move with gtltcube. Since gtltcube depends on gti files and we have 4 of them, gtltcube runs 4 times, following `gtltcube_run.py`. 
 
 8. Move on to calculate binned exposure map with the gtexpcube2. Since it depends on both gtbin and livetime cube, ran it 4 times following `gtexpcube2_run.py` 
+
+9. Next as usual is srcmaps: Run using `gtsrcmaps_run.py' . Check the header if they are correctly produced: `check_agn_psr_srcmaps_more.py'
+
+10. Finally, use gtmodel: Run using `run_gtmodel_ccube.py' . Check the header if they are correctly produced: `gtmodel_check.py'
+
+
+---------------------------------------------------------
+
+
+#### Decision on Patch Size and Number of Patches; 
+
+* Given the pixel size in Healpix $\sim 0.03^{\circ}$, we wanted to have reasonably large but still managable by neural-net relatively easy (computationally); Decided on patch size to be $512\times 512$ pixels i.e. covering about $14.6^{\circ}\times 14.6^{\circ} \approx 214 \, \text{deg}^2$. 
+
+	- Number of sources/patch: Given the area of the sky $4\pi$ sr, basically about $4\pi \left(\frac{180}{\pi}\right)^2 \approx 41253\, \text{deg}^2$. Total number of sources (16yrs cat) in LAT: 7224; so number density of sources $\rho = \frac{7224}{41253}\approx 0.175 \, \text{deg}^{-2}$. So, roughly 1 source/$5.7\, \text{deg}^2$. So expected number of sources given area $214 \, \text{deg}^2$ is about 37. (quite a lot!)
+	
+* Now about how many patches to effectively cover the sky, to have minimal overlap and avoid edge effect (i.e. try to keep sources away from the edges of the patches): Turned out 432 gives the best of them all; with this layout, it covers the full sky in our sampling test, with each sky position appearing in 2.24 patches on average. Approximately $98.9\%$ of the sky lies at least $1.15^{\circ}$ from all edges of at least one patch, allowing a source’s bounding box to fit fully within that patch. The remaining $1.1\%$ is covered only near patch edges.	  
+
+| Num. Patches  | Av. Coverage/sky point  | Sky never $\geq 1.15^{\circ}$ inside any patch  | 
+|---|---|---|
+| 192   | 1.00x  | 30.8%  |
+| 300  | 1.57x  | 11.0%  |
+| _432_  | 2.24x  | 1.1%  |
+| 588 | 3.07x | 0.0% |
+| 768 | 4.00x | 0.0% |
+
+
+----------------------------------- 
